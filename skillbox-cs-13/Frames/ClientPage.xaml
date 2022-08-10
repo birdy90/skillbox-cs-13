@@ -1,0 +1,86 @@
+﻿<Page x:Class="skillbox_cs_13.Frames.ClientPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:ctx="clr-namespace:skillbox_cs_13.DataContexts"
+      mc:Ignorable="d"
+      VerticalAlignment="Stretch"
+      HorizontalAlignment="Stretch"
+      d:DesignHeight="300"
+      d:DesignWidth="500"
+      Title="ClientPage" 
+      d:DataContext="{ctx:ClientPageContext}">
+    <DockPanel VerticalAlignment="Stretch" Margin="10">
+        <Label DockPanel.Dock="Top" FontSize="20" FontFamily="Ubuntu" FontWeight="Bold" Content="{Binding Client.Name}" />
+        
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            
+            <Button Grid.Column="0" Padding="20, 5" Click="ButtonBase_OnClick">Back</Button>
+        </Grid>
+        
+        <Grid Margin="0,30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="30"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <Button Background="White" Content="Open account" 
+                    Visibility="{Binding Client.HasNoCommonAccount}" Click="CommonAdd_OnClick" />
+            <Button Grid.Column="2" Background="White" Content="Open deposit account" 
+                    Visibility="{Binding Client.HasNoDepositAccount}" Click="DepositAdd_OnClick" />
+            
+            <Grid Visibility="{Binding Client.HasCommonAccount}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                
+                <StackPanel Grid.ColumnSpan="4" Orientation="Vertical">
+                    <Label>Common account</Label>
+                    <Label FontSize="26" FontFamily="Ubuntu" FontWeight="Bold" Content="{Binding Client.CommonAccount.MoneyString}" />
+                </StackPanel>
+                
+                <Button Padding="10, 5" Grid.Row="1" Grid.Column="0" Click="CommonSend">Send</Button>
+                <Button Padding="10, 5" Grid.Row="1" Grid.Column="1" Click="CommonAdd25">+25$</Button>
+                <Button Padding="10, 5" Grid.Row="1" Grid.Column="3" Click="CommonDelete_OnClick">Close account</Button>
+            </Grid>
+            
+            <Grid Grid.Column="2" Visibility="{Binding Client.HasDepositAccount}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                
+                <StackPanel Grid.ColumnSpan="4" Orientation="Vertical">
+                    <Label>Deposit account</Label>
+                    <Label FontSize="26" FontFamily="Ubuntu" FontWeight="Bold" Content="{Binding Client.DepositAccount.MoneyString}" />
+                </StackPanel>
+                
+                <Button Padding="10, 5" Grid.Row="1" Grid.Column="0" Click="DepositSend">Send</Button>
+                <Button Padding="10, 5" Grid.Row="1" Grid.Column="1" Click="DepositAdd25">+25$</Button>
+                <Button Padding="10, 5" Grid.Row="1" Grid.Column="3" Click="DepositDelete_OnClick">Close account</Button>
+            </Grid>
+        </Grid>
+    </DockPanel>
+</Page>

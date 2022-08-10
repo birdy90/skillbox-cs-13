@@ -1,0 +1,42 @@
+﻿<Page x:Class="skillbox_cs_13.Frames.ChooseClientPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:accounts="clr-namespace:skillbox_cs_13.Classes.Accounts"
+      xmlns:ctx="clr-namespace:skillbox_cs_13.DataContexts"
+      mc:Ignorable="d"
+      Title="ChooseClientPage" 
+      VerticalAlignment="Stretch"
+      HorizontalAlignment="Stretch"
+      d:DesignHeight="400"
+      d:DesignWidth="500"
+      d:DataContext="{ctx:ChooseClientPageContext}"
+>
+    <DockPanel VerticalAlignment="Stretch" Margin="10">
+        <Label DockPanel.Dock="Top" FontSize="20" FontFamily="Ubuntu" FontWeight="Bold">Send money from</Label>
+       
+        <StackPanel DockPanel.Dock="Top" Orientation="Vertical" Margin="0,7">
+            <Label>How muh to send</Label>
+            <TextBox Text="{Binding AmountToSendString}" Padding="3,5"></TextBox>
+        </StackPanel>
+        
+        <Label DockPanel.Dock="Top">Choose client to send</Label>
+        
+        <DockPanel DockPanel.Dock="Bottom" FlowDirection="RightToLeft" Margin="0,10,0,0" Height="30">
+            <Button Padding="20,0" DockPanel.Dock="Right" Click="OnCancel">Cancel</Button>
+            <Button Padding="20,0" DockPanel.Dock="Left" Click="OnSend" Visibility="{Binding CanSendVisibility}">Send</Button>
+
+            <Grid />
+        </DockPanel>
+        
+        <ListBox x:Name="ClientsList" VerticalAlignment="Stretch" ItemsSource="{Binding Accounts}" SelectedItem="{Binding Receiver}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Name}"></Label>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </DockPanel>
+</Page>
+

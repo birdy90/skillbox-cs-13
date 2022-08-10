@@ -1,0 +1,21 @@
+﻿<Window x:Class="skillbox_cs_13.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:skillbox_cs_13"
+        mc:Ignorable="d"
+        Background="Orchid"
+        WindowStartupLocation="CenterScreen"
+        Title="Bank System" Height="450" Width="525">
+    <Grid>
+        <Frame 
+            NavigationUIVisibility="Hidden"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            x:Name="Frame" 
+            Margin="7,7,7,7" 
+            Background="White" 
+        />
+    </Grid>
+</Window>
