@@ -84,8 +84,41 @@ namespace skillbox_cs_13.Classes
             OnPropertyChanged("HasNoDepositAccount");
             OnPropertyChanged("HasDepositAccount");
         }
-
+        
+        /// <summary>
+        /// Add account to client
+        /// </summary>
+        /// <typeparam name="T">Type of aacount to create</typeparam>
+        public void AddAccount<T>()
+            where T: Account, new()
+        {
+            var account = new T();
+            account.Owner = this as Client;
+            CreateAccountEvent?.Invoke(account);
+            Accounts.Add(account);
+            UpdateAccountInfo();
+        }
+        
+        /// <summary>
+        /// Delete client's account
+        /// </summary>
+        /// <typeparam name="T">Type of account to delete</typeparam>
+        public void DeleteAccount<T>()
+            where T: Account
+        {
+            var account = GetAccount<T>();
+            DeleteAccountEvent?.Invoke(account);
+            Accounts.Remove(account);
+            UpdateAccountInfo();
+        }
+        
         public event PropertyChangedEventHandler PropertyChanged;
+        
+        public event AccountManipulationDelegate CreateAccountEvent;
+        
+        public event AccountManipulationDelegate DeleteAccountEvent;
+
+        public delegate void AccountManipulationDelegate(Account account);
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

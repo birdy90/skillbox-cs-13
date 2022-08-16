@@ -49,6 +49,7 @@ namespace skillbox_cs_13.Classes.Accounts
 
             AddMoney(-amount);
             account.AddMoney(amount);
+            MoneyTransfer?.Invoke(this, account, amount);
         }
 
         /// <summary>
@@ -59,9 +60,18 @@ namespace skillbox_cs_13.Classes.Accounts
         {
             _depositMoney += amount;
             OnPropertyChanged("MoneyString");
+            MoneyAdd?.Invoke(this, amount);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+        
+        public event MoneyTransferDelegate MoneyTransfer;
+        
+        public event MoneyAddDelegate MoneyAdd;
+
+        public delegate void MoneyTransferDelegate(Account from, Account to, decimal amount);
+        
+        public delegate void MoneyAddDelegate(Account to, decimal amount);
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

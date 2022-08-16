@@ -4,11 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:skillbox_cs_13"
+        xmlns:ctx="clr-namespace:skillbox_cs_13.DataContexts"
         mc:Ignorable="d"
         Background="Orchid"
         WindowStartupLocation="CenterScreen"
-        Title="Bank System" Height="450" Width="525">
-    <Grid>
+        d:DataContext="{ctx:MainPageContext}"
+        Title="Bank System" Height="550" Width="525">
+    <DockPanel>
+        <TextBox 
+            DockPanel.Dock="Bottom"
+            Height="100"
+            IsReadOnly="True"
+            Text="{Binding LogString, Mode=OneWay}"
+            Margin="7, 0,7,7"></TextBox>
+        
         <Frame 
             NavigationUIVisibility="Hidden"
             HorizontalAlignment="Stretch"
@@ -17,5 +26,5 @@
             Margin="7,7,7,7" 
             Background="White" 
         />
-    </Grid>
+    </DockPanel>
 </Window>

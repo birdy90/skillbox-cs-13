@@ -1,8 +1,4 @@
-﻿using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Windows;
-using skillbox_cs_13.Classes;
+﻿using skillbox_cs_13.Classes;
 using skillbox_cs_13.Classes.Accounts;
 using skillbox_cs_13.Utils;
 
@@ -22,8 +18,7 @@ namespace skillbox_cs_13.DataContexts
         public void AddAccount<T>()
             where T: Account, new()
         {
-            Client.Accounts.Add(new T());
-            Client.UpdateAccountInfo();
+            Client.AddAccount<T>();
         }
 
         /// <summary>
@@ -33,8 +28,7 @@ namespace skillbox_cs_13.DataContexts
         public void DeleteAccount<T>()
             where T: Account
         {
-            Client.Accounts = Client.Accounts.Where(t => !(t is T)).ToList();
-            Client.UpdateAccountInfo();
+            Client.DeleteAccount<T>();
         }
 
         /// <summary>

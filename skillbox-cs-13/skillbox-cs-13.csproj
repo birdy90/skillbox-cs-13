@@ -59,6 +59,7 @@
         <Compile Include="DataContexts\ChooseClientPageContext.cs" />
         <Compile Include="DataContexts\ClientPageContext.cs" />
         <Compile Include="DataContexts\IndexContext.cs" />
+        <Compile Include="DataContexts\MainPageContext.cs" />
         <Compile Include="Frames\ChooseClientPage.xaml.cs">
           <DependentUpon>ChooseClientPage.xaml</DependentUpon>
         </Compile>

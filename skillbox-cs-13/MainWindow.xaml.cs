@@ -20,6 +20,8 @@ namespace skillbox_cs_13
 
             PageManager.I.Frame = Frame;
             PageManager.I.Load<Index>(new IndexContext());
+
+            DataContext = new MainPageContext();
         }
     }
 }
