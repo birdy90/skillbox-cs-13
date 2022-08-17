@@ -11,12 +11,19 @@
         d:DataContext="{ctx:MainPageContext}"
         Title="Bank System" Height="550" Width="525">
     <DockPanel>
-        <TextBox 
+        <DockPanel
+            Background="White"
             DockPanel.Dock="Bottom"
-            Height="100"
-            IsReadOnly="True"
-            Text="{Binding LogString, Mode=OneWay}"
-            Margin="7, 0,7,7"></TextBox>
+            Margin="7, 0,7,7"
+        >
+            <TextBox 
+                Height="100"
+                IsReadOnly="True"
+                Text="{Binding LogString, Mode=OneWay}"
+                Margin="10"
+                Padding="10"
+            />
+        </DockPanel>
         
         <Frame 
             NavigationUIVisibility="Hidden"
