@@ -1,4 +1,4 @@
-﻿namespace skillbox_cs_13.Classes.Accounts
+﻿namespace BankSystem.Accounts
 {
     public class CommonAccount: Account
     {

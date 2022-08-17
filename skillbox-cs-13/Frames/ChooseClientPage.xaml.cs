@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Controls;
-using skillbox_cs_13.Classes;
-using skillbox_cs_13.Classes.Accounts;
+using BankSystem;
+using BankSystem.Accounts;
 using skillbox_cs_13.DataContexts;
-using skillbox_cs_13.Utils;
 
 namespace skillbox_cs_13.Frames
 {
@@ -42,13 +42,20 @@ namespace skillbox_cs_13.Frames
             var receiver = ClientsList.SelectedItem as Client;
             var accountFrom = getAccountMethodGeneric?.Invoke(_ctx.Sender, null) as Account;
             var accountTo = getAccountMethodGeneric?.Invoke(receiver, null) as Account;
-            
-            accountFrom?.SendMoney(accountTo, _ctx.AmountToSend);
-            
-            PageManager.I.Load<ClientPage>(new ClientPageContext
+
+            try
             {
-                Client = _ctx.Sender,
-            });
+                accountFrom?.SendMoney(accountTo, _ctx.AmountToSend);
+                PageManager.I.Load<ClientPage>(new ClientPageContext
+                {
+                    Client = _ctx.Sender,
+                });
+            }
+            catch (NotEnoughMoneyException ex)
+            {
+                var message = $"${ex.Client.Name}: Can't send ${_ctx.AmountToSend} from ${accountFrom?.Money} account";
+                MessageBox.Show(message);
+            }
         }
     }
 }

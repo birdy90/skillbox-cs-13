@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace skillbox_cs_13.Utils
+namespace Utils.Utils
 {
     /// <summary>
     /// Random number generator

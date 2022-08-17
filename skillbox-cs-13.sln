@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "skillbox-cs-13", "skillbox-cs-13\skillbox-cs-13.csproj", "{AC91C9C2-EFDB-4E34-874B-3196A57D8393}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankSystem", "BankSystem\BankSystem.csproj", "{BA951D27-76FB-4E2B-B6DC-51FF508F2AE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj", "{9194EA89-2D3C-4BF6-945B-1C196BE000B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{AC91C9C2-EFDB-4E34-874B-3196A57D8393}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC91C9C2-EFDB-4E34-874B-3196A57D8393}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC91C9C2-EFDB-4E34-874B-3196A57D8393}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA951D27-76FB-4E2B-B6DC-51FF508F2AE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA951D27-76FB-4E2B-B6DC-51FF508F2AE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA951D27-76FB-4E2B-B6DC-51FF508F2AE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA951D27-76FB-4E2B-B6DC-51FF508F2AE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9194EA89-2D3C-4BF6-945B-1C196BE000B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9194EA89-2D3C-4BF6-945B-1C196BE000B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9194EA89-2D3C-4BF6-945B-1C196BE000B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9194EA89-2D3C-4BF6-945B-1C196BE000B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

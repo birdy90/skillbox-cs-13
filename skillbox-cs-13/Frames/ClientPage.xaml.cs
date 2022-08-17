@@ -1,10 +1,9 @@
 ﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using skillbox_cs_13.Classes;
-using skillbox_cs_13.Classes.Accounts;
+using BankSystem;
+using BankSystem.Accounts;
 using skillbox_cs_13.DataContexts;
-using skillbox_cs_13.Utils;
 
 namespace skillbox_cs_13.Frames
 {
@@ -80,7 +79,7 @@ namespace skillbox_cs_13.Frames
             {
                 Sender = _ctx.Client,
                 AccountType = typeof(CommonAccount),
-                Accounts = BankSystem.I.Clients
+                Accounts = BankSystemCore.I.Clients
                     .Where(t => t != _ctx.Client && t.GetAccount<CommonAccount>() != null)
                     .ToList(),
             });
@@ -128,7 +127,7 @@ namespace skillbox_cs_13.Frames
             {
                 Sender = _ctx.Client,
                 AccountType = typeof(DepositAccount),
-                Accounts = BankSystem.I.Clients
+                Accounts = BankSystemCore.I.Clients
                     .Where(t => t != _ctx.Client && t.GetAccount<DepositAccount>() != null)
                     .ToList(),
             });

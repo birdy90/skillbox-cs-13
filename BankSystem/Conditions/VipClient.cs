@@ -1,4 +1,4 @@
-﻿namespace skillbox_cs_13.Classes.PersonalConditions
+﻿namespace BankSystem.Conditions
 {
     public class VipClient: PersonalConditions
     {

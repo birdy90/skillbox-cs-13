@@ -50,12 +50,6 @@
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
         </ApplicationDefinition>
-        <Compile Include="Classes\Accounts\Account.cs" />
-        <Compile Include="Classes\Accounts\CommonAccount.cs" />
-        <Compile Include="Classes\Accounts\DepositAccount.cs" />
-        <Compile Include="Classes\PersonalConditions\PersonalConditions.cs" />
-        <Compile Include="Classes\PersonalConditions\CompanyClient.cs" />
-        <Compile Include="Classes\PersonalConditions\VipClient.cs" />
         <Compile Include="DataContexts\ChooseClientPageContext.cs" />
         <Compile Include="DataContexts\ClientPageContext.cs" />
         <Compile Include="DataContexts\IndexContext.cs" />
@@ -69,11 +63,6 @@
         <Compile Include="Frames\Index.xaml.cs">
           <DependentUpon>Index.xaml</DependentUpon>
         </Compile>
-        <Compile Include="Utils\NameGenerator.cs" />
-        <Compile Include="Utils\PageDataContext.cs" />
-        <Compile Include="Utils\PageManager.cs" />
-        <Compile Include="Utils\Randomizer.cs" />
-        <Compile Include="Utils\Singleton.cs" />
         <Page Include="Frames\ChooseClientPage.xaml" />
         <Page Include="Frames\ClientPage.xaml" />
         <Page Include="Frames\Index.xaml" />
@@ -85,8 +74,6 @@
             <DependentUpon>App.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
-        <Compile Include="Classes\BankSystem.cs" />
-        <Compile Include="Classes\Client.cs" />
         <Compile Include="MainWindow.xaml.cs">
             <DependentUpon>MainWindow.xaml</DependentUpon>
             <SubType>Code</SubType>
@@ -111,6 +98,16 @@
     </ItemGroup>
     <ItemGroup>
       <Content Include=".gitignore" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\BankSystem\BankSystem.csproj">
+        <Project>{ba951d27-76fb-4e2b-b6dc-51ff508f2ae4}</Project>
+        <Name>BankSystem</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\Utils\Utils.csproj">
+        <Project>{9194ea89-2d3c-4bf6-945b-1c196be000b2}</Project>
+        <Name>Utils</Name>
+      </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

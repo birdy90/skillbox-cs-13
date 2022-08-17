@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using skillbox_cs_13.Classes.Accounts;
-using skillbox_cs_13.Utils;
+using BankSystem;
+using BankSystem.Accounts;
 
 namespace skillbox_cs_13.DataContexts
 {

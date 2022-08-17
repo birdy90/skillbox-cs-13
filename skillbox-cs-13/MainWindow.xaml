@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:skillbox_cs_13"
         xmlns:ctx="clr-namespace:skillbox_cs_13.DataContexts"
         mc:Ignorable="d"
-        Background="Orchid"
+        Background="Blue"
         WindowStartupLocation="CenterScreen"
         d:DataContext="{ctx:MainPageContext}"
         Title="Bank System" Height="550" Width="525">

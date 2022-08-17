@@ -3,20 +3,21 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows;
-using skillbox_cs_13.Classes.Accounts;
+using BankSystem.Accounts;
+using BankSystem.Conditions;
 
-namespace skillbox_cs_13.Classes
+namespace BankSystem
 {
     /// <summary>
     /// Default type for generic class
     /// </summary>
-    public class Client: Client<PersonalConditions.PersonalConditions> {}
+    public class Client: Client<PersonalConditions> {}
     
     /// <summary>
     /// Bank client
     /// </summary>
     public class Client<T>: INotifyPropertyChanged
-        where T: PersonalConditions.PersonalConditions
+        where T: PersonalConditions
     {
         /// <summary>
         /// Client's name
@@ -36,7 +37,7 @@ namespace skillbox_cs_13.Classes
         /// <summary>
         /// Clients personal conditions
         /// </summary>
-        public PersonalConditions.PersonalConditions PersonalConditions;
+        public PersonalConditions PersonalConditions;
 
         /// <summary>
         /// Client's common account

@@ -1,4 +1,4 @@
-﻿namespace skillbox_cs_13.Utils
+﻿namespace Utils.Utils
 {
     public class NameGenarator
     {

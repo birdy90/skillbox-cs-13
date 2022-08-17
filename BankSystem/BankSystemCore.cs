@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using skillbox_cs_13.Classes.Accounts;
-using skillbox_cs_13.Utils;
+using BankSystem.Accounts;
+using BankSystem.Conditions;
+using Utils.Utils;
 
-namespace skillbox_cs_13.Classes
+namespace BankSystem
 {
     /// <summary>
     /// Bank system
     /// </summary>
-    public class BankSystem: Singleton<BankSystem>
+    public class BankSystemCore: Singleton<BankSystemCore>
     {
         private List<Client> _clients = new List<Client>(); 
         
@@ -37,13 +38,13 @@ namespace skillbox_cs_13.Classes
                 {
                     Name = NameGenarator.RandomName,
                     Phone = string.Join("", "1234567890".ToCharArray().Select(t => Randomizer.Next(0, 9).ToString())),
-                    PersonalConditions = new PersonalConditions.PersonalConditions(),
+                    PersonalConditions = new PersonalConditions(),
                 };
                 var account = new CommonAccount
                 {
                     Owner = client,
                 };
-                account.AddMoney(Randomizer.Next(1, 30) * 25);
+                account = (CommonAccount)(account + Randomizer.Next(1, 30) * 25);
                 client.Accounts.Add(account);
                 Clients.Add(client);
             }

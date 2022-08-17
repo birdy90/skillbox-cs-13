@@ -1,6 +1,5 @@
-﻿using skillbox_cs_13.Classes;
-using skillbox_cs_13.Classes.Accounts;
-using skillbox_cs_13.Utils;
+﻿using BankSystem;
+using BankSystem.Accounts;
 
 namespace skillbox_cs_13.DataContexts
 {
@@ -38,7 +37,11 @@ namespace skillbox_cs_13.DataContexts
         public void AddQuarter<T>() 
             where T : Account
         {
-            Client.GetAccount<T>()?.AddMoney(25);
+            var account = Client.GetAccount<T>();
+            if (account != null)
+            {
+                account += 25;
+            }
         }
     }
 }

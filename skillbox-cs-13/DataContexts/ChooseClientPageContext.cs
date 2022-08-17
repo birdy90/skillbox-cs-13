@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
-using skillbox_cs_13.Classes;
-using skillbox_cs_13.Classes.Accounts;
-using skillbox_cs_13.Utils;
+using BankSystem;
+using BankSystem.Accounts;
 
 namespace skillbox_cs_13.DataContexts
 {
@@ -37,10 +36,7 @@ namespace skillbox_cs_13.DataContexts
         /// <summary>
         /// Send button visibility
         /// </summary>
-        public Visibility CanSendVisibility
-        {
-            get { return CanSend ? Visibility.Visible : Visibility.Hidden; }
-        }
+        public Visibility CanSendVisibility => CanSend ? Visibility.Visible : Visibility.Hidden;
 
         /// <summary>
         /// List of accounts to send money to
@@ -60,11 +56,7 @@ namespace skillbox_cs_13.DataContexts
             get => AmountToSend.ToString();
             set
             {
-                var getAccountMethod = Sender.GetType().GetMethod("GetAccount");
-                var getAccountMethodGeneric = getAccountMethod?.MakeGenericMethod(AccountType);
-                var accountFrom = getAccountMethodGeneric?.Invoke(Sender, null) as Account;
-
-                _amountIsValid = decimal.TryParse(value, out AmountToSend) && AmountToSend <= accountFrom.Money;
+                _amountIsValid = decimal.TryParse(value, out AmountToSend);
                 OnPropertyChanged("CanSendVisibility");
             }
         }

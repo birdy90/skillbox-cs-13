@@ -1,11 +1,12 @@
 ﻿using System.Windows.Controls;
+using Utils.Utils;
 
-namespace skillbox_cs_13.Utils
+namespace BankSystem
 {
     public class PageManager: Singleton<PageManager>
     {
         /// <summary>
-        /// Frame isntance
+        /// Frame instance
         /// </summary>
         public Frame Frame;
 

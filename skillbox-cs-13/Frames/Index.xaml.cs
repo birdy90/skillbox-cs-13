@@ -1,7 +1,6 @@
 ﻿using System.Windows.Controls;
-using skillbox_cs_13.Classes;
+using BankSystem;
 using skillbox_cs_13.DataContexts;
-using skillbox_cs_13.Utils;
 
 namespace skillbox_cs_13.Frames
 {

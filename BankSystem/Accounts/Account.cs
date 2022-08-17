@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace skillbox_cs_13.Classes.Accounts
+namespace BankSystem.Accounts
 {
     /// <summary>
     /// Bank account
@@ -44,7 +44,7 @@ namespace skillbox_cs_13.Classes.Accounts
         {
             if (_depositMoney < amount)
             {
-                throw new Exception("Not enough money");
+                throw new NotEnoughMoneyException(account, amount);
             }
 
             AddMoney(-amount);
@@ -52,11 +52,17 @@ namespace skillbox_cs_13.Classes.Accounts
             MoneyTransfer?.Invoke(this, account, amount);
         }
 
+        public static Account operator + (Account target, decimal amount)
+        {
+            target.AddMoney(amount);
+            return target;
+        }
+
         /// <summary>
         /// Add money to an account deposit
         /// </summary>
         /// <param name="amount">Amount of money to move</param>
-        public void AddMoney(decimal amount)
+        private void AddMoney(decimal amount)
         {
             _depositMoney += amount;
             OnPropertyChanged("MoneyString");

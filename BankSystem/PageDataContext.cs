@@ -1,8 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using skillbox_cs_13.Classes;
 
-namespace skillbox_cs_13.Utils
+namespace BankSystem
 {
     /// <summary>
     /// Base class for page data contexts
@@ -12,7 +11,7 @@ namespace skillbox_cs_13.Utils
         /// <summary>
         /// Link to a bank system
         /// </summary>
-        public BankSystem BankSystem => Classes.BankSystem.I;
+        public BankSystemCore BankSystem => BankSystemCore.I;
         
         public event PropertyChangedEventHandler PropertyChanged;
 
